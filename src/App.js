@@ -24,6 +24,7 @@ const ButtonT = withStyles( theme => ({
     borderRadius: '2em',
     borderColor: "#F49400",
     marginTop: 15,
+    fontSize: 12,
   }
 
 }))(Button);
@@ -58,7 +59,7 @@ function App() {
 
         <InputCustom  id="custom-css-standard-input" label="Senha" />
         <ColorButton variant="contained" color="inherit" className="button">Login</ColorButton>
-        <a href="#">Esqueci a senha</a>
+        <a href="#">Esqueci minha senha</a>
         <ButtonT variant="outlined" color="inherit" className="button">Registre-se</ButtonT>
         
         </div>

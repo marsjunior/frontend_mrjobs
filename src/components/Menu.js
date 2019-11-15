@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -12,12 +12,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
 
 const drawerWidth = 240;
 const menuLateral = [
@@ -62,17 +64,21 @@ const useStyles = makeStyles(theme => ({
     },
   },
   menuButton: {
-    marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
   toolbar: {
     backgroundColor: "#F49400",
+    ...theme.mixins.toolbar,
+  },
+  barApp: {
     display: 'flex',
     alignItems: 'center',
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: '0',
+    }
   },
   drawerPaper: {
     width: drawerWidth,
@@ -91,8 +97,58 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar,
   },
   titulo: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+    }
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('xs')]: {
+      display: 'none',
+    },
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 300,
+      },
+    },
+  },
+  searchMobile: {
+    display: 'flex',
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      display:'none',
+    },
+
   }
 }));
 
@@ -105,6 +161,9 @@ export default function Menu(props){
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const searchMob = () => {
+  }
 
   const drawer = (
     <div>
@@ -129,7 +188,7 @@ export default function Menu(props){
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.barApp}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -142,6 +201,22 @@ export default function Menu(props){
           <Typography className={classes.titulo} variant="h6" noWrap align='center'>
           {props.titulo}
           </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Buscar…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div className={classes.searchMobile} onClick={searchMob}>
+            <SearchIcon />
+          </div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">

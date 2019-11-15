@@ -51,7 +51,7 @@ function Login({ history }) {
           <ButtonOrange variant="contained" color="inherit" type="submit" className="button">Login</ButtonOrange>
           </form>
           <a href="/recuperarsenha">Esqueci minha senha</a>
-          <ButtonTransparent variant="outlined" onClick={ () => history.push("/cadastro")} color="inherit" className="button">Registre-se</ButtonTransparent>
+          <ButtonTransparent variant="outlined" onClick={ () => history.push("/registro")} color="inherit" className="button">Registre-se</ButtonTransparent>
         </div>
       </div>
     </div>

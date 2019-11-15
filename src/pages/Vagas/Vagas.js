@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Menu from '../../components/Menu';
 import ButtonTransparent from '../../components/ButtonTransparent';
 
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import './Vagas.css';
 
@@ -63,10 +62,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Vagas(props){
-  const classes = useStyles();
-  const { container } = props;
-
-  
+  const classes = useStyles();  
 
   return (
     <div className={classes.root}>
@@ -74,6 +70,49 @@ export default function Vagas(props){
       <main className={classes.content}>
         <div className={classes.espaco} />
         <Card className={classes.card}>
+      <CardContent className={classes.contentCard}>
+        <Typography className={classes.title} variant="h6" gutterBottom>
+          Operador de telemarketing
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Orbital Powred by Stefanini
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Campina Grande - PB
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Ensino Médio
+        </Typography>
+        <div className={classes.divisao}>
+          <Typography className={classes.salario}>
+            R$ 1200
+          </Typography>
+          <ButtonTransparent variant="outlined" color="inherit" className={classes.botao}>+ Detalhes</ButtonTransparent>
+        </div>
+      </CardContent>
+    </Card>
+    <Card className={classes.card}>
+      <CardContent className={classes.contentCard}>
+        <Typography className={classes.title} variant="h6" gutterBottom>
+          Operador de telemarketing
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Orbital Powred by Stefanini
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Campina Grande - PB
+        </Typography>
+        <Typography className={classes.conteudo}>
+          Ensino Médio
+        </Typography>
+        <div className={classes.divisao}>
+          <Typography className={classes.salario}>
+            R$ 1200
+          </Typography>
+          <ButtonTransparent variant="outlined" color="inherit" className={classes.botao}>+ Detalhes</ButtonTransparent>
+        </div>
+      </CardContent>
+    </Card><Card className={classes.card}>
       <CardContent className={classes.contentCard}>
         <Typography className={classes.title} variant="h6" gutterBottom>
           Operador de telemarketing

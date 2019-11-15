@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 export const TOKEN_KEY = "@mrjobs-token";
-export const isAuthenticated = () => {return true};
+export const isAuthenticated = () => {return false};
 // export const isAuthenticated = () => {
 //         let token = localStorage.getItem(TOKEN_KEY);
 //         let result = true;

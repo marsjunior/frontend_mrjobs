@@ -78,6 +78,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     [theme.breakpoints.up('sm')]: {
       paddingLeft: '0',
+      paddingRight: '0',
     }
   },
   drawerPaper: {
@@ -96,17 +97,30 @@ const useStyles = makeStyles(theme => ({
   espaco: {
     ...theme.mixins.toolbar,
   },
-  titulo: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-    }
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+    titulo: {
+      [theme.breakpoints.up('sm')]: {
+        width: drawerWidth,
+      },
+      [theme.breakpoints.up('xs')]: {
+        marginLeft: -12,
+      }
+    },
+    tituloNoSearch: {
+      [theme.breakpoints.up('xs')]: {
+        width: '100%',
+        marginLeft: -36,
+      },[theme.breakpoints.up('sm')]: {
+        width: drawerWidth,
+        marginLeft: 0,
+      },
+    },
+    search: {
+      position: 'relative',
+      borderRadius: theme.shape.borderRadius,
+      marginRight: 12,
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     width: '100%',
@@ -198,31 +212,30 @@ export default function Menu(props){
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.titulo} variant="h6" noWrap align='center'>
+          <Typography className={ props.search ? ( classes.titulo ) : ( classes.tituloNoSearch ) } variant="h6" noWrap align='center'>
           {props.titulo}
           </Typography>
           <div>
-            {props.searchCondicao}
-            { (props.searchCondicao === true) ? (
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
+            { (props.search) ? (
+              <div>
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder="Buscar…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                </div>
+                <div className={classes.searchMobile} onClick={searchMob}>
                   <SearchIcon />
                 </div>
-                <InputBase
-                  placeholder="Buscar…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ 'aria-label': 'search' }}
-                />
               </div>
-              <div className={classes.searchMobile} onClick={searchMob}>
-                <SearchIcon />
-              </div>
-            ) : ( 
-              ""
-            )}
+            ) : ( "")}
           </div>
         </Toolbar>
       </AppBar>

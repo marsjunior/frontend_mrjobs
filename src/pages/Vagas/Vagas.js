@@ -66,7 +66,7 @@ export default function Vagas(props){
 
   return (
     <div className={classes.root}>
-      <Menu titulo='Vagas' searchCondicao="true"/>
+      <Menu titulo='Vagas' search/>
       <main className={classes.content}>
         <div className={classes.espaco} />
         <Card className={classes.card}>

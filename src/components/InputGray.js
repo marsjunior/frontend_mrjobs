@@ -11,6 +11,7 @@ const InputGray = withStyles( theme => ({
       '& .MuiInput-underline:after': {
         borderBottomColor: '#707c8d',
       },
+      paddingBottom: '15px',
     }
   
   }))(TextField);

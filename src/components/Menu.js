@@ -201,21 +201,28 @@ export default function Menu(props){
           <Typography className={classes.titulo} variant="h6" noWrap align='center'>
           {props.titulo}
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Buscar…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div className={classes.searchMobile} onClick={searchMob}>
-            <SearchIcon />
+          <div>
+            {props.searchCondicao}
+            { (props.searchCondicao === true) ? (
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Buscar…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </div>
+              <div className={classes.searchMobile} onClick={searchMob}>
+                <SearchIcon />
+              </div>
+            ) : ( 
+              ""
+            )}
           </div>
         </Toolbar>
       </AppBar>
@@ -249,7 +256,7 @@ export default function Menu(props){
             {drawer}
           </Drawer>
         </Hidden>
-        </nav>
-        </div>
-    );
+      </nav>
+    </div>
+  );
 }

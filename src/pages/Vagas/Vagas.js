@@ -66,31 +66,31 @@ export default function Vagas(props){
 
   return (
     <div className={classes.root}>
-      <Menu titulo='Vagas'/>
+      <Menu titulo='Vagas' searchCondicao="true"/>
       <main className={classes.content}>
         <div className={classes.espaco} />
         <Card className={classes.card}>
-      <CardContent className={classes.contentCard}>
-        <Typography className={classes.title} variant="h6" gutterBottom>
-          Operador de telemarketing
-        </Typography>
-        <Typography className={classes.conteudo}>
-          Orbital Powred by Stefanini
-        </Typography>
-        <Typography className={classes.conteudo}>
-          Campina Grande - PB
-        </Typography>
-        <Typography className={classes.conteudo}>
-          Ensino Médio
-        </Typography>
-        <div className={classes.divisao}>
-          <Typography className={classes.salario}>
-            R$ 1200
-          </Typography>
-          <ButtonTransparent variant="outlined" color="inherit" className={classes.botao}>+ Detalhes</ButtonTransparent>
-        </div>
-      </CardContent>
-    </Card>
+          <CardContent className={classes.contentCard}>
+            <Typography className={classes.title} variant="h6" gutterBottom >
+                Operador de telemarketing
+            </Typography>
+            <Typography className={classes.conteudo}>
+              Orbital Powred by Stefanini
+            </Typography>
+            <Typography className={classes.conteudo}>
+              Campina Grande - PB
+            </Typography>
+            <Typography className={classes.conteudo}>
+              Ensino Médio
+            </Typography>
+            <div className={classes.divisao}>
+              <Typography className={classes.salario}>
+                R$ 1200
+              </Typography>
+              <ButtonTransparent variant="outlined" color="inherit" className={classes.botao}>+ Detalhes</ButtonTransparent>
+            </div>
+          </CardContent>
+          </Card>
     <Card className={classes.card}>
       <CardContent className={classes.contentCard}>
         <Typography className={classes.title} variant="h6" gutterBottom>

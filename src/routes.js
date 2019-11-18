@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import Vagas from './pages/Vagas/Vagas';
 import Registro from './pages/RegistroPF/Registro';
 import RegistroPJ from './pages/RegistroPJ/Registro';
+import Perfil from './pages/Perfil/Perfil';
 
 const PrivateRoute = ( { component: Component, ... rest } )  => (
     <Route { ... rest} render={ props => (
@@ -25,6 +26,7 @@ const Routes = () => (
         <Route exact path="/recuperarsenha" component={() => <h1>Recuperar Conta</h1>} />
         <PrivateRoute path="/app" component={() => <h1>Você esta logado</h1>} />
         <PrivateRoute path="/vagas" component={Vagas} />
+        <PrivateRoute path="/perfil" component={Perfil} />
     </BrowserRouter>
 );
 

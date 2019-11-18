@@ -15,7 +15,7 @@ function Login({ history }) {
 
   useEffect(() => {
     if(isAuthenticated()){
-      history.push("/app");
+      history.push("/vagas");
     }
   }, []);
 
@@ -29,7 +29,7 @@ function Login({ history }) {
     let token = resp.data.token;
     login(token);
 
-    history.push("/app");
+    history.push("/vagas");
   }
 
 

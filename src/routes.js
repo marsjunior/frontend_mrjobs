@@ -24,7 +24,6 @@ const Routes = () => (
         <Route exact path="/registro" component={Registro} />
         <Route exact path="/registropj" component={RegistroPJ} />
         <Route exact path="/recuperarsenha" component={() => <h1>Recuperar Conta</h1>} />
-        <PrivateRoute path="/app" component={() => <h1>Você esta logado</h1>} />
         <PrivateRoute path="/vagas" component={Vagas} />
         <PrivateRoute path="/perfil" component={Perfil} />
     </BrowserRouter>

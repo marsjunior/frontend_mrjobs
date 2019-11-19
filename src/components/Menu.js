@@ -167,7 +167,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Menu(props){
-    const { container } = props;
+  const { container, history } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -177,6 +177,10 @@ export default function Menu(props){
   };
 
   const searchMob = () => {
+  }
+
+  const navigation = (rota) =>{
+    history.push(rota);
   }
 
   const drawer = (
@@ -189,7 +193,7 @@ export default function Menu(props){
       <Divider />
       <List>
         {menuLateral.map((menu, index) => (
-          <ListItem button key={menu.nome}>
+          <ListItem button key={menu.nome} onClick={() => navigation(menu.rota)}>
             <ListItemIcon>{<menu.icone />}</ListItemIcon>
             <ListItemText primary={menu.nome} />
           </ListItem>

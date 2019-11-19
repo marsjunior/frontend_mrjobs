@@ -22,8 +22,8 @@ function Login({ history }) {
   async function logar(e){
     e.preventDefault();
     
-    const resp =  await api.post('auth/loginPF/email', {
-      email,
+    const resp =  await api.post('auth/loginPF/cpf', {
+      cpf: email,
       password
     });
     let token = resp.data.token;

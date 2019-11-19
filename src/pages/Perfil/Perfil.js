@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Perfil() {
+export default function Perfil(props) {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date('2012-05-18T01:01:01'));
 
@@ -58,7 +58,7 @@ export default function Perfil() {
   };
   return (
     <div className={classes.root}>
-        <Menu titulo="Perfil" />
+        <Menu titulo="Perfil" { ... props}/>
         <main className={classes.content}>
           <div className={classes.espaco} />
           <div className={classes.meio}>
